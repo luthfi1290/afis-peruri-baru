@@ -45,6 +45,16 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+
+        'photo' => [
+            'driver' => 'session',
+            'provider' => 'photos',
+        ],
+
+        'photo-api' => [
+            'driver' => 'token',
+            'provider' => 'photos',
+        ],
     ],
 
     /*
@@ -70,6 +80,11 @@ return [
             'model' => App\User::class,
         ],
 
+        'photos' => [
+            'driver' => 'eloquent',
+            'model'  => App\UserPhoto::class,
+        ]
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -94,6 +109,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'photos' => [
+            'provider' => 'photos',
             'table' => 'password_resets',
             'expire' => 60,
         ],
